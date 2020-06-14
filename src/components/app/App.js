@@ -37,14 +37,11 @@ function App() {
         <Route exact path="/voting-centers">
           {state.address ? <CenterContainer /> : <Redirect to="/" />}
         </Route>
-        <Route path="/voting-centers/:id">
+        <Route exact path="/voting-centers/:id">
           {state.selectedCenter ? <CenterDetail/> : <Redirect to="/" />}
         </Route>
-        <Route path="/confirmation">
-          {true  ? <QueueConfirmation votingCenter={'Union Station'}
-          distance={'20'} address={'1701 Wynkoop St, Denver, CO 80211'}
-          queueNum={'15'} eta={'25'} confirmationID={'GF14L7'}
-          /> : <Redirect to="/" />}
+        <Route path="/voting-centers/:id/confirmation">
+          <QueueConfirmation distance={'15'} />
         </Route>
       </AppContext.Provider>
     </div>
